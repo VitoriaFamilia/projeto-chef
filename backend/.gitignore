@@ -1,0 +1,5 @@
+# Ignorar dependências
+node_modules/
+
+# Ignorar o arquivo de variáveis de ambiente com dados reais e senhas
+.env

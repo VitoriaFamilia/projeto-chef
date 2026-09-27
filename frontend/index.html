@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <title>Food Humor - Guia Gastronômico de São João de Meriti</title>
+
+
+
+  <style>
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+
+
+    body {
+
+      background-color: #fdf8f5;
+
+      color: #2b2b2b;
+
+      min-height: 100vh;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      padding: 20px;
+
+    }
+
+
+
+    header {
+
+      width: 100%;
+
+      max-width: 600px;
+
+      text-align: center;
+
+      margin-bottom: 20px;
+
+      padding: 22px 20px;
+
+      background: linear-gradient(135deg, #d32f2f, #f57c00);
+
+      color: #ffffff;
+
+      border-radius: 16px;
+
+      box-shadow: 0 4px 15px rgba(211, 47, 47, 0.25);
+
+    }
+
+
+
+    header h1 {
+
+      font-size: 2.1rem;
+
+      font-weight: 800;
+
+      letter-spacing: 0.5px;
+
+      margin-bottom: 6px;
+
+    }
+
+
+
+    header p {
+
+      font-size: 0.95rem;
+
+      opacity: 0.95;
+
+    }
+
+
+
+    .tabs {
+
+      display: flex;
+
+      width: 100%;
+
+      max-width: 600px;
+
+      margin-bottom: 20px;
+
+      background-color: #ffebee;
+
+      border-radius: 12px;
+
+      padding: 4px;
+
+      gap: 4px;
+
+    }
+
+
+
+    .tab-btn {
+
+      flex: 1;
+
+      padding: 12px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #c62828;
+
+      font-weight: 700;
+
+      font-size: 0.95rem;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: all 0.2s ease;
+
+    }
+
+
+
+    .tab-btn:hover {
+
+      background-color: #ffcdd2;
+
+    }
+
+
+
+    .tab-btn.active {
+
+      background-color: #d32f2f;
+
+      color: #ffffff;
+
+      box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+
+    }
+
+
+
+    .container {
+
+      width: 100%;
+
+      max-width: 600px;
+
+      background: #ffffff;
+
+      border-radius: 16px;
+
+      padding: 24px;
+
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+      border: 1px solid #ffe0b2;
+
+    }
+
+
+
+    .tab-content {
+
+      display: none;
+
+    }
+
+
+
+    .tab-content.active {
+
+      display: block;
+
+    }
+
+
+
+    .form-group {
+
+      margin-bottom: 18px;
+
+    }
+
+
+
+    .form-group label {
+
+      display: block;
+
+      font-weight: 700;
+
+      color: #333333;
+
+      margin-bottom: 8px;
+
+      font-size: 0.95rem;
+
+    }
+
+
+
+    .form-group select,
+
+    .form-group input {
+
+      width: 100%;
+
+      padding: 12px 14px;
+
+      border: 2px solid #ffcc80;
+
+      border-radius: 10px;
+
+      font-size: 1rem;
+
+      color: #333;
+
+      background-color: #fffde7;
+
+      outline: none;
+
+      transition: border-color 0.2s ease;
+
+    }
+
+
+
+    .form-group select:focus,
+
+    .form-group input:focus {
+
+      border-color: #e65100;
+
+      background-color: #ffffff;
+
+    }
+
+
+
+    .location-card {
+
+      background-color: #fff3e0;
+
+      border: 1px dashed #f57c00;
+
+      border-radius: 12px;
+
+      padding: 16px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+    .location-card h3 {
+
+      font-size: 0.95rem;
+
+      color: #e65100;
+
+      margin-bottom: 12px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+    }
+
+
+
+    .location-row {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    .location-row input {
+
+      flex: 1;
+
+      padding: 10px 14px;
+
+      border: 2px solid #ffcc80;
+
+      border-radius: 8px;
+
+      font-size: 0.95rem;
+
+      outline: none;
+
+    }
+
+
+
+    .location-row input:focus {
+
+      border-color: #e65100;
+
+    }
+
+
+
+    .btn-gps {
+
+      background-color: #f57c00;
+
+      color: #ffffff;
+
+      border: none;
+
+      padding: 10px 14px;
+
+      border-radius: 8px;
+
+      font-weight: 700;
+
+      font-size: 0.85rem;
+
+      cursor: pointer;
+
+      white-space: nowrap;
+
+      transition: background-color 0.2s ease;
+
+    }
+
+
+
+    .btn-gps:hover {
+
+      background-color: #e65100;
+
+    }
+
+
+
+    .location-status {
+
+      font-size: 0.85rem;
+
+      color: #2b2b2b;
+
+      font-weight: 600;
+
+      margin-top: 8px;
+
+      padding: 8px;
+
+      background-color: #ffffff;
+
+      border-radius: 6px;
+
+      border: 1px solid #ffe0b2;
+
+      line-height: 1.4;
+
+    }
+
+
+
+    .btn-submit {
+
+      width: 100%;
+
+      padding: 14px;
+
+      background: linear-gradient(135deg, #f57c00, #d32f2f);
+
+      color: #ffffff;
+
+      border: none;
+
+      border-radius: 12px;
+
+      font-size: 1.1rem;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      box-shadow: 0 4px 12px rgba(245, 124, 0, 0.3);
+
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+
+      margin-top: 10px;
+
+    }
+
+
+
+    .btn-submit:hover {
+
+      transform: translateY(-2px);
+
+      box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
+
+    }
+
+
+
+    .btn-danger {
+
+      width: 100%;
+
+      padding: 12px;
+
+      background: #ffffff;
+
+      color: #c62828;
+
+      border: 2px solid #c62828;
+
+      border-radius: 12px;
+
+      font-size: 0.95rem;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      margin-top: 14px;
+
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+    }
+
+
+
+    .btn-danger:hover {
+
+      background: #c62828;
+
+      color: #ffffff;
+
+    }
+
+
+
+    .result-box {
+
+      margin-top: 24px;
+
+      padding: 20px;
+
+      border: 2px dashed #f57c00;
+
+      border-radius: 12px;
+
+      background-color: #fffde7;
+
+      text-align: center;
+
+      color: #333333;
+
+      font-weight: 600;
+
+      min-height: 100px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+
+    .result-card-title {
+
+      color: #d32f2f;
+
+      font-size: 1.2rem;
+
+      font-weight: 800;
+
+      margin-bottom: 6px;
+
+    }
+
+
+
+    .google-maps-link {
+
+      color: #d32f2f;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      font-weight: 800;
+
+      display: inline-block;
+
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+    }
+
+
+
+    .google-maps-link:hover {
+
+      opacity: 0.8;
+
+      transform: scale(1.02);
+
+      text-decoration: underline;
+
+    }
+
+
+
+    .result-card-detail {
+
+      font-size: 0.9rem;
+
+      color: #e65100;
+
+      margin-top: 4px;
+
+    }
+
+
+
+    .history-list {
+
+      list-style: none;
+
+    }
+
+
+
+    .history-item {
+
+      padding: 12px;
+
+      border-bottom: 1px solid #ffe0b2;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+
+    .history-item:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+
+    .history-title {
+
+      font-weight: 700;
+
+      color: #d32f2f;
+
+    }
+
+
+
+    .history-date {
+
+      font-size: 0.8rem;
+
+      color: #757575;
+
+      white-space: nowrap;
+
+    }
+
+
+
+    .optional-tag {
+
+      font-size: 0.8rem;
+
+      color: #757575;
+
+      font-weight: normal;
+
+    }
+
+
+
+    @media (max-width: 500px) {
+
+      body {
+
+        padding: 10px;
+
+      }
+
+
+
+      .container {
+
+        padding: 18px;
+
+      }
+
+
+
+      .location-row {
+
+        flex-direction: column;
+
+      }
+
+
+
+      .btn-gps {
+
+        width: 100%;
+
+      }
+
+
+
+      .history-item {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+
+  <!-- CABEÇALHO -->
+
+
+
+  <header>
+
+    <h1>Food Humor</h1>
+
+
+
+    <p>
+
+      O que comer hoje? Descubra de acordo com o seu humor!
+
+    </p>
+
+
+
+
+
+    <div style="
+
+    margin-top: 12px;
+
+">
+
+
+
+    <a
+
+        href="perfil.html"
+
+        style="
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 0.85rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        ">
+
+
+
+        👤 Minha conta
+
+
+
+    </a>
+
+
+
+    <span style="
+
+        color: #ffffff;
+
+        margin: 0 8px;
+
+    ">
+
+        |
+
+    </span>
+
+
+
+    <a
+
+        href="#"
+
+        onclick="sairDaConta(); return false;"
+
+        style="
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 0.85rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        ">
+
+
+
+        🚪 Sair
+
+
+
+    </a>
+
+
+
+</div>
+
+  </header>
+
+
+
+
+
+  <!-- ABAS -->
+
+
+
+  <nav class="tabs" role="tablist">
+
+
+
+    <button
+
+        type="button"
+
+        class="tab-btn active"
+
+        onclick="switchTab('busca', this)">
+
+        Guia de Busca
+
+    </button>
+
+
+
+    <button
+
+        type="button"
+
+        class="tab-btn"
+
+        onclick="switchTab('historico', this)">
+
+        Histórico
+
+    </button>
+
+
+
+    <button
+
+        type="button"
+
+        class="tab-btn"
+
+        onclick="switchTab('perfil', this)">
+
+        Meu Perfil
+
+    </button>
+
+
+
+  </nav>
+
+
+
+
+
+  <main class="container">
+
+
+
+    <!-- ABA BUSCA -->
+
+
+
+    <section
+
+      id="tab-busca"
+
+      class="tab-content active">
+
+
+
+      <!-- LOCALIZAÇÃO -->
+
+
+
+      <div class="location-card">
+
+
+
+        <h3>
+
+          📍 Localização em São João de Meriti
+
+        </h3>
+
+
+
+        <div class="location-row">
+
+
+
+          <input
+
+            type="text"
+
+            id="cep"
+
+            placeholder="Digite seu CEP (ex: 25515-000)"
+
+            maxlength="9"
+
+          >
+
+
+
+          <button
+
+            type="button"
+
+            class="btn-gps"
+
+            id="btn-buscar-cep">
+
+            Buscar CEP
+
+          </button>
+
+
+
+        </div>
+
+
+
+        <div style="
+
+          text-align: center;
+
+          font-size: 0.8rem;
+
+          color: #e65100;
+
+          margin: 8px 0;
+
+          font-weight: 700;
+
+        ">
+
+          — OU —
+
+        </div>
+
+
+
+        <button
+
+          type="button"
+
+          class="btn-gps"
+
+          id="btn-gps"
+
+          style="width: 100%;">
+
+          Usar Minha Localização Atual (GPS)
+
+        </button>
+
+
+
+        <div
+
+          class="location-status"
+
+          id="location-status">
+
+
+
+          Aguardando informação de localização...
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+      <!-- FORMULÁRIO DE BUSCA -->
+
+
+
+      <form id="search-form">
+
+
+
+        <!-- HUMOR -->
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="humor">
+
+            Como você está se sentindo hoje?
+
+          </label>
+
+
+
+          <select
+
+            id="humor"
+
+            required>
+
+
+
+            <option
+
+              value=""
+
+              disabled
+
+              selected>
+
+              Selecione seu humor...
+
+            </option>
+
+
+
+            <option value="cansado">
+
+              Cansado
+
+            </option>
+
+
+
+            <option value="feliz">
+
+              Feliz / Celebrativo
+
+            </option>
+
+
+
+            <option value="estressado">
+
+              Estressado
+
+            </option>
+
+
+
+            <option value="aventureiro">
+
+              Aventureiro
+
+            </option>
+
+
+
+            <option value="fome_leao">
+
+              Fome de Leão
+
+            </option>
+
+
+
+          </select>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- CATEGORIA -->
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="restricao">
+
+            🍽️ O que você está procurando?
+
+          </label>
+
+
+
+          <select id="restricao">
+
+
+
+            <option value="nenhuma">
+
+              Qualquer tipo de estabelecimento
+
+            </option>
+
+
+
+            <option value="massa">
+
+              🍝 Massas / Pizzas
+
+            </option>
+
+
+
+            <option value="fast_food">
+
+              🍔 Fast-food
+
+            </option>
+
+
+
+            <option value="lanches">
+
+              🌭 Lanches
+
+            </option>
+
+
+
+            <option value="boteco">
+
+              🍻 Boteco / Petiscos
+
+            </option>
+
+
+
+            <option value="churrasco">
+
+              🥩 Churrasco
+
+            </option>
+
+
+
+            <option value="carne">
+
+              🥩 Carnes
+
+            </option>
+
+
+
+            <option value="frutos_mar">
+
+              🐟 Peixes / Frutos do mar
+
+            </option>
+
+
+
+            <option value="comida_caseira">
+
+              🍛 Comida caseira
+
+            </option>
+
+
+
+            <option value="comida_mineira">
+
+              🧀 Comida mineira
+
+            </option>
+
+
+
+            <option value="alemã">
+
+              🥨 Comida alemã
+
+            </option>
+
+
+
+          </select>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- ORÇAMENTO -->
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="orcamento">
+
+            Quanto quer investir?
+
+          </label>
+
+
+
+          <select
+
+            id="orcamento"
+
+            required>
+
+
+
+            <option value="economico">
+
+              $ Econômico
+
+            </option>
+
+
+
+            <option value="moderado">
+
+              $$ Moderado
+
+            </option>
+
+
+
+            <option value="premium">
+
+              $$$ Mais elaborado
+
+            </option>
+
+
+
+          </select>
+
+
+
+        </div>
+
+
+
+
+
+        <button
+
+          type="submit"
+
+          class="btn-submit">
+
+
+
+          ✨ Gerar Sugestão Mágica
+
+
+
+        </button>
+
+
+
+      </form>
+
+
+
+
+
+      <!-- RESULTADO -->
+
+
+
+      <div
+
+        class="result-box"
+
+        id="result-box">
+
+
+
+        Sua sugestão personalizada aparecerá aqui...
+
+
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- ABA PERFIL -->
+
+
+
+    <section
+
+      id="tab-perfil"
+
+      class="tab-content">
+
+
+
+      <h2
+
+        style="
+
+          margin-bottom: 16px;
+
+          color: #d32f2f;
+
+        ">
+
+
+
+        Dados do Usuário
+
+
+
+      </h2>
+
+
+
+      <form id="profile-form">
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="nome">
+
+            Nome Completo:
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="nome"
+
+            placeholder="Digite seu nome"
+
+            required>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="idade">
+
+            Idade:
+
+          </label>
+
+
+
+          <input
+
+            type="number"
+
+            id="idade"
+
+            placeholder="Ex: 22"
+
+            min="1"
+
+            max="120"
+
+            required>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="genero">
+
+
+
+            Gênero
+
+
+
+            <span class="optional-tag">
+
+              (opcional)
+
+            </span>
+
+
+
+          </label>
+
+
+
+          <select id="genero">
+
+
+
+            <option value="">
+
+              Prefiro não informar
+
+            </option>
+
+
+
+            <option value="feminino">
+
+              Feminino
+
+            </option>
+
+
+
+            <option value="masculino">
+
+              Masculino
+
+            </option>
+
+
+
+            
+
+            <option value="outro">
+
+              Outro
+
+            </option>
+
+
+
+          </select>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+
+
+          <label for="email">
+
+
+
+            E-mail
+
+
+
+            <span class="optional-tag">
+
+              (opcional)
+
+            </span>
+
+
+
+          </label>
+
+
+
+          <input
+
+            type="email"
+
+            id="email"
+
+            placeholder="seu@email.com">
+
+
+
+        </div>
+
+
+
+
+
+        <button
+
+          type="submit"
+
+          class="btn-submit">
+
+
+
+          Salvar Perfil
+
+
+
+        </button>
+
+
+
+      </form>
+
+
+
+      <button
+
+        type="button"
+
+        id="btn-excluir-conta"
+
+        class="btn-danger">
+
+
+
+        🗑️ Excluir minha conta
+
+
+
+      </button>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- ABA HISTÓRICO -->
+
+
+
+    <section
+
+      id="tab-historico"
+
+      class="tab-content">
+
+
+
+      <h2
+
+        style="
+
+          margin-bottom: 16px;
+
+          color: #d32f2f;
+
+        ">
+
+
+
+        Histórico de Recomendações
+
+
+
+      </h2>
+
+
+
+      <ul
+
+        class="history-list"
+
+        id="history-list">
+
+
+
+        <li class="history-item">
+
+
+
+          <div>
+
+
+
+            <div class="history-title">
+
+              Nenhuma recomendação realizada ainda.
+
+            </div>
+
+
+
+            <small>
+
+              Suas escolhas aparecerão aqui.
+
+            </small>
+
+
+
+          </div>
+
+
+
+        </li>
+
+
+
+      </ul>
+
+
+
+    </section>
+
+
+
+  </main>
+
+
+
+
+
+  <!-- JAVASCRIPT -->
+
+
+
+  <script src="script.js"></script>
+
+
+
+</body>
+
+
+
+</html>

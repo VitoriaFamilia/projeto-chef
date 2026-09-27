@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Food Humor - Meu Perfil
+    </title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff3e0,
+                    #ffebee
+                );
+
+        }
+
+
+        .perfil-container {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            background: #ffffff;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0, 0, 0, 0.10);
+
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .logo h1 {
+
+            color: #d32f2f;
+
+            font-size: 2rem;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .logo p {
+
+            color: #757575;
+
+            font-size: 0.9rem;
+
+            line-height: 1.4;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+            color: #333333;
+
+        }
+
+
+        .optional {
+
+            color: #757575;
+
+            font-size: 0.8rem;
+
+            font-weight: normal;
+
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 2px solid #ffcc80;
+
+            border-radius: 10px;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            background-color: #fffde7;
+
+        }
+
+
+        input:focus,
+        select:focus {
+
+            border-color: #e65100;
+
+            background-color: #ffffff;
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f57c00,
+                    #d32f2f
+                );
+
+            color: #ffffff;
+
+            font-size: 1rem;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+
+        }
+
+
+        button:hover {
+
+            opacity: 0.92;
+
+        }
+
+
+        button:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .mensagem {
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+
+            display: none;
+
+            line-height: 1.4;
+
+        }
+
+
+        .mensagem.erro {
+
+            display: block;
+
+            background: #ffebee;
+
+            color: #c62828;
+
+        }
+
+
+        .mensagem.sucesso {
+
+            display: block;
+
+            background: #e8f5e9;
+
+            color: #2e7d32;
+
+        }
+
+
+        .logout-link {
+
+            margin-top: 18px;
+
+            text-align: center;
+
+        }
+
+
+        .logout-link button {
+
+            background: #616161;
+
+            margin-top: 0;
+
+        }
+
+
+        .btn-perigo {
+
+            background: #ffffff !important;
+
+            color: #c62828 !important;
+
+            border: 2px solid #c62828 !important;
+
+        }
+
+
+        .btn-perigo:hover {
+
+            background: #c62828 !important;
+
+            color: #ffffff !important;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="perfil-container">
+
+
+        <div class="logo">
+
+            <h1>
+                🍽️ Food Humor
+            </h1>
+
+            <p>
+                Complete seu perfil para personalizar
+                sua experiência.
+            </p>
+
+        </div>
+
+
+        <form id="perfil-form">
+
+
+            <!-- NOME -->
+
+            <div class="form-group">
+
+                <label for="nome">
+                    Nome completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome completo"
+                    autocomplete="name"
+                    required>
+
+            </div>
+
+
+            <!-- IDADE -->
+
+            <div class="form-group">
+
+                <label for="idade">
+                    Idade
+                </label>
+
+                <input
+                    type="number"
+                    id="idade"
+                    placeholder="Ex: 22"
+                    min="1"
+                    max="120"
+                    required>
+
+            </div>
+
+
+            <!-- GÊNERO -->
+
+            <div class="form-group">
+
+                <label for="genero">
+
+                    Gênero
+
+                    <span class="optional">
+                        (opcional)
+                    </span>
+
+                </label>
+
+                <select id="genero">
+
+                    <option value="">
+                        Prefiro não informar
+                    </option>
+
+                    <option value="feminino">
+                        Feminino
+                    </option>
+
+                    <option value="masculino">
+                        Masculino
+                    </option>
+
+                    <option value="outro">
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- E-MAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+
+                    E-mail
+
+                    <span class="optional">
+                        (opcional)
+                    </span>
+
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email">
+
+            </div>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                type="submit"
+                id="btn-salvar">
+
+                Salvar perfil
+
+            </button>
+
+
+        </form>
+
+
+        <!-- MENSAGEM -->
+
+        <div
+            id="mensagem"
+            class="mensagem">
+        </div>
+
+
+        <!-- SAIR -->
+
+        <div class="logout-link">
+
+            <button
+                type="button"
+                id="btn-sair">
+
+                🚪 Sair da conta
+
+            </button>
+
+        </div>
+
+
+        <!-- EXCLUIR CONTA -->
+
+        <div class="logout-link">
+
+            <button
+                type="button"
+                id="btn-excluir-conta"
+                class="btn-perigo">
+
+                🗑️ Excluir minha conta
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        // =================================================
+        // CONFIGURAÇÃO
+        // =================================================
+
+        const API_URL =
+            "http://localhost:3000/api";
+
+
+        const TOKEN_KEY =
+            "foodhumor_token";
+
+
+        const USER_KEY =
+            "foodhumor_usuario";
+
+
+        // =================================================
+        // ELEMENTOS
+        // =================================================
+
+        const perfilForm =
+            document.getElementById(
+                "perfil-form"
+            );
+
+
+        const mensagem =
+            document.getElementById(
+                "mensagem"
+            );
+
+
+        const botaoSalvar =
+            document.getElementById(
+                "btn-salvar"
+            );
+
+
+        const botaoSair =
+            document.getElementById(
+                "btn-sair"
+            );
+
+
+        const botaoExcluirConta =
+            document.getElementById(
+                "btn-excluir-conta"
+            );
+
+
+        // =================================================
+        // INICIALIZAÇÃO
+        // =================================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            async () => {
+
+                const token =
+                    localStorage.getItem(
+                        TOKEN_KEY
+                    );
+
+
+                // Sem token → volta para login
+
+                if (!token) {
+
+                    window.location.href =
+                        "login.html";
+
+                    return;
+
+                }
+
+
+                await carregarPerfil();
+
+            }
+        );
+
+
+        // =================================================
+        // HEADERS COM JWT
+        // =================================================
+
+        function headersAutenticacao() {
+
+            const token =
+                localStorage.getItem(
+                    TOKEN_KEY
+                );
+
+
+            return {
+
+                "Authorization":
+                    `Bearer ${token}`
+
+            };
+
+        }
+
+
+        // =================================================
+        // CARREGAR PERFIL
+        // =================================================
+
+        async function carregarPerfil() {
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        `${API_URL}/usuarios/me`,
+                        {
+
+                            headers:
+                                headersAutenticacao()
+
+                        }
+                    );
+
+
+                // Token inválido ou expirado
+
+                if (
+                    resposta.status === 401
+                ) {
+
+                    sairDaConta();
+
+                    return;
+
+                }
+
+
+                const data =
+                    await resposta.json();
+
+
+                if (!resposta.ok) {
+
+                    throw new Error(
+                        data.erro ||
+                        "Erro ao carregar perfil."
+                    );
+
+                }
+
+
+                // Preencher campos
+
+                document
+                    .getElementById("nome")
+                    .value =
+                        data.nome || "";
+
+
+                document
+                    .getElementById("idade")
+                    .value =
+                        data.idade || "";
+
+
+                document
+                    .getElementById("genero")
+                    .value =
+                        data.genero || "";
+
+
+                document
+                    .getElementById("email")
+                    .value =
+                        data.email || "";
+
+
+                // Atualizar dados armazenados
+
+                localStorage.setItem(
+                    USER_KEY,
+                    JSON.stringify(data)
+                );
+
+
+                console.log(
+                    "✅ Perfil carregado:",
+                    data
+                );
+
+
+            } catch (erro) {
+
+                console.error(
+                    "❌ Erro ao carregar perfil:",
+                    erro
+                );
+
+
+                mostrarMensagem(
+                    "Não foi possível carregar seu perfil.",
+                    "erro"
+                );
+
+            }
+
+        }
+
+
+        // =================================================
+        // SALVAR PERFIL
+        // =================================================
+
+        perfilForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const nome =
+                    document
+                        .getElementById("nome")
+                        .value
+                        .trim();
+
+
+                const idade =
+                    document
+                        .getElementById("idade")
+                        .value;
+
+
+                const genero =
+                    document
+                        .getElementById("genero")
+                        .value;
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                // -----------------------------
+                // VALIDAÇÃO
+                // -----------------------------
+
+                if (!nome || !idade) {
+
+                    mostrarMensagem(
+                        "Nome e idade são obrigatórios.",
+                        "erro"
+                    );
+
+                    return;
+
+                }
+
+
+                // -----------------------------
+                // BLOQUEAR BOTÃO
+                // -----------------------------
+
+                botaoSalvar.disabled =
+                    true;
+
+                botaoSalvar.innerText =
+                    "Salvando...";
+
+
+                try {
+
+                    const resposta =
+                        await fetch(
+                            `${API_URL}/usuarios/me`,
+                            {
+
+                                method:
+                                    "PUT",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json",
+
+                                    ...headersAutenticacao()
+
+                                },
+
+                                body:
+                                    JSON.stringify({
+
+                                        nome:
+                                            nome,
+
+                                        idade:
+                                            Number(idade),
+
+                                        genero:
+                                            genero,
+
+                                        email:
+                                            email
+
+                                    })
+
+                            }
+                        );
+
+
+                    // Sessão inválida
+
+                    if (
+                        resposta.status === 401
+                    ) {
+
+                        sairDaConta();
+
+                        return;
+
+                    }
+
+
+                    const data =
+                        await resposta.json();
+
+
+                    if (!resposta.ok) {
+
+                        throw new Error(
+                            data.erro ||
+                            "Erro ao salvar perfil."
+                        );
+
+                    }
+
+
+                    console.log(
+                        "✅ Perfil salvo:",
+                        data
+                    );
+
+
+                    // Atualizar dados locais
+
+                    const usuarioAtual =
+                        JSON.parse(
+                            localStorage.getItem(
+                                USER_KEY
+                            ) || "{}"
+                        );
+
+
+                    usuarioAtual.nome =
+                        nome;
+
+                    usuarioAtual.idade =
+                        Number(idade);
+
+                    usuarioAtual.genero =
+                        genero;
+
+                    usuarioAtual.email =
+                        email;
+
+
+                    localStorage.setItem(
+                        USER_KEY,
+                        JSON.stringify(
+                            usuarioAtual
+                        )
+                    );
+
+
+                    mostrarMensagem(
+                        "Perfil salvo com sucesso!",
+                        "sucesso"
+                    );
+
+
+                    // Ir para o FoodHumor
+
+                    setTimeout(
+                        () => {
+
+                            window.location.href =
+                                "index.html";
+
+                        },
+                        1000
+                    );
+
+
+                } catch (erro) {
+
+                    console.error(
+                        "❌ Erro ao salvar perfil:",
+                        erro
+                    );
+
+
+                    mostrarMensagem(
+                        erro.message,
+                        "erro"
+                    );
+
+
+                    botaoSalvar.disabled =
+                        false;
+
+                    botaoSalvar.innerText =
+                        "Salvar perfil";
+
+                }
+
+            }
+        );
+
+
+        // =================================================
+        // EXCLUIR CONTA
+        // =================================================
+
+        botaoExcluirConta.addEventListener(
+            "click",
+            excluirConta
+        );
+
+
+        async function excluirConta() {
+
+            const confirmar =
+                confirm(
+                    "Tem certeza que deseja excluir sua conta? " +
+                    "Essa ação não pode ser desfeita."
+                );
+
+
+            if (!confirmar) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        `${API_URL}/usuarios/me`,
+                        {
+
+                            method:
+                                "DELETE",
+
+                            headers:
+                                headersAutenticacao()
+
+                        }
+                    );
+
+
+                if (
+                    resposta.status === 401
+                ) {
+
+                    sairDaConta();
+
+                    return;
+
+                }
+
+
+                if (!resposta.ok) {
+
+                    const data =
+                        await resposta
+                            .json()
+                            .catch(() => ({}));
+
+                    throw new Error(
+                        data.erro ||
+                        "Erro ao excluir conta."
+                    );
+
+                }
+
+
+                localStorage.removeItem(
+                    TOKEN_KEY
+                );
+
+                localStorage.removeItem(
+                    USER_KEY
+                );
+
+
+                alert(
+                    "Conta excluída com sucesso."
+                );
+
+
+                window.location.href =
+                    "cadastro.html";
+
+
+            } catch (erro) {
+
+                console.error(
+                    "❌ Erro ao excluir conta:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message ||
+                    "Não foi possível excluir a conta."
+                );
+
+            }
+
+        }
+
+
+        // =================================================
+        // SAIR
+        // =================================================
+
+        botaoSair.addEventListener(
+            "click",
+            sairDaConta
+        );
+
+
+        function sairDaConta() {
+
+            localStorage.removeItem(
+                TOKEN_KEY
+            );
+
+            localStorage.removeItem(
+                USER_KEY
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        // =================================================
+        // MENSAGEM
+        // =================================================
+
+        function mostrarMensagem(
+            texto,
+            tipo
+        ) {
+
+            mensagem.className =
+                `mensagem ${tipo}`;
+
+            mensagem.innerText =
+                texto;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -11,7 +11,6 @@
 
     <title>Food Humor - Criar Conta</title>
 
-
     <style>
 
         * {
@@ -25,7 +24,6 @@
                 Verdana,
                 sans-serif;
         }
-
 
         body {
 
@@ -48,7 +46,6 @@
 
         }
 
-
         .container {
 
             width: 100%;
@@ -63,10 +60,9 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0,0,0,.10);
+                rgba(0, 0, 0, .10);
 
         }
-
 
         .logo {
 
@@ -75,7 +71,6 @@
             margin-bottom: 25px;
 
         }
-
 
         .logo h1 {
 
@@ -87,7 +82,6 @@
 
         }
 
-
         .logo p {
 
             color: #757575;
@@ -98,13 +92,11 @@
 
         }
 
-
         .grupo {
 
             margin-bottom: 18px;
 
         }
-
 
         label {
 
@@ -117,7 +109,6 @@
             color: #333;
 
         }
-
 
         input {
 
@@ -138,7 +129,6 @@
 
         }
 
-
         input:focus {
 
             border-color: #e65100;
@@ -146,7 +136,6 @@
             background: white;
 
         }
-
 
         .senha-info {
 
@@ -158,6 +147,73 @@
 
         }
 
+        .seguranca-titulo {
+
+            margin-top: 25px;
+
+            margin-bottom: 8px;
+
+            color: #d32f2f;
+
+            font-size: 1.15rem;
+
+        }
+
+        .seguranca-info {
+
+            margin-bottom: 18px;
+
+            font-size: .82rem;
+
+            color: #757575;
+
+            line-height: 1.4;
+
+        }
+
+        .pergunta {
+
+            margin-bottom: 18px;
+
+            padding: 15px;
+
+            background: #fff8e1;
+
+            border-radius: 12px;
+
+            border: 1px solid #ffe0b2;
+
+        }
+
+        .pergunta-numero {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #e65100;
+
+            font-size: .8rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+        }
+
+        .pergunta-texto {
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            font-weight: 700;
+
+            color: #333;
+
+            line-height: 1.4;
+
+        }
 
         button {
 
@@ -186,7 +242,6 @@
 
         }
 
-
         button:disabled {
 
             opacity: .7;
@@ -194,7 +249,6 @@
             cursor: not-allowed;
 
         }
-
 
         .mensagem {
 
@@ -212,7 +266,6 @@
 
         }
 
-
         .mensagem.erro {
 
             display: block;
@@ -223,7 +276,6 @@
 
         }
 
-
         .mensagem.sucesso {
 
             display: block;
@@ -233,7 +285,6 @@
             color: #2e7d32;
 
         }
-
 
         .login-link {
 
@@ -246,7 +297,6 @@
             color: #757575;
 
         }
-
 
         .login-link a {
 
@@ -262,11 +312,9 @@
 
 </head>
 
-
 <body>
 
     <div class="container">
-
 
         <div class="logo">
 
@@ -342,6 +390,86 @@
             </div>
 
 
+            <!-- SEGURANÇA -->
+
+            <h2 class="seguranca-titulo">
+                🔐 Perguntas de segurança
+            </h2>
+
+            <p class="seguranca-info">
+                Essas perguntas serão utilizadas caso você esqueça
+                sua senha. Escolha respostas que você consiga lembrar.
+            </p>
+
+
+            <!-- PERGUNTA 1 -->
+
+            <div class="pergunta">
+
+                <span class="pergunta-numero">
+                    Pergunta 1
+                </span>
+
+                <span class="pergunta-texto">
+                    Qual é sua comida favorita?
+                </span>
+
+                <input
+                    type="text"
+                    id="resposta-1"
+                    placeholder="Digite sua resposta"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <!-- PERGUNTA 2 -->
+
+            <div class="pergunta">
+
+                <span class="pergunta-numero">
+                    Pergunta 2
+                </span>
+
+                <span class="pergunta-texto">
+                    Qual é sua cor favorita?
+                </span>
+
+                <input
+                    type="text"
+                    id="resposta-2"
+                    placeholder="Digite sua resposta"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <!-- PERGUNTA 3 -->
+
+            <div class="pergunta">
+
+                <span class="pergunta-numero">
+                    Pergunta 3
+                </span>
+
+                <span class="pergunta-texto">
+                    Qual era o nome do seu primeiro animal de estimação?
+                </span>
+
+                <input
+                    type="text"
+                    id="resposta-3"
+                    placeholder="Digite sua resposta"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <!-- BOTÃO -->
+
             <button
                 type="submit"
                 id="btn-cadastrar">
@@ -374,6 +502,10 @@
 
     <script>
 
+        // =================================================
+        // CONFIGURAÇÃO DA API
+        // =================================================
+
         const API_URL =
             "http://localhost:3000/api";
 
@@ -385,6 +517,10 @@
         const USER_KEY =
             "foodhumor_usuario";
 
+
+        // =================================================
+        // ELEMENTOS
+        // =================================================
 
         const form =
             document.getElementById(
@@ -407,6 +543,24 @@
         const confirmarSenhaInput =
             document.getElementById(
                 "confirmar-senha"
+            );
+
+
+        const resposta1Input =
+            document.getElementById(
+                "resposta-1"
+            );
+
+
+        const resposta2Input =
+            document.getElementById(
+                "resposta-2"
+            );
+
+
+        const resposta3Input =
+            document.getElementById(
+                "resposta-3"
             );
 
 
@@ -436,9 +590,7 @@
                         .substring(0, 11);
 
 
-                if (
-                    valor.length > 9
-                ) {
+                if (valor.length > 9) {
 
                     valor =
                         valor.replace(
@@ -446,9 +598,7 @@
                             "$1.$2.$3-$4"
                         );
 
-                } else if (
-                    valor.length > 6
-                ) {
+                } else if (valor.length > 6) {
 
                     valor =
                         valor.replace(
@@ -456,9 +606,7 @@
                             "$1.$2.$3"
                         );
 
-                } else if (
-                    valor.length > 3
-                ) {
+                } else if (valor.length > 3) {
 
                     valor =
                         valor.replace(
@@ -606,6 +754,22 @@
                     confirmarSenhaInput.value;
 
 
+                const resposta1 =
+                    resposta1Input.value.trim();
+
+
+                const resposta2 =
+                    resposta2Input.value.trim();
+
+
+                const resposta3 =
+                    resposta3Input.value.trim();
+
+
+                // =========================================
+                // VALIDAR CPF
+                // =========================================
+
                 if (
                     !validarCPF(cpf)
                 ) {
@@ -615,10 +779,16 @@
                         "erro"
                     );
 
+                    cpfInput.focus();
+
                     return;
 
                 }
 
+
+                // =========================================
+                // VALIDAR SENHA
+                // =========================================
 
                 if (
                     senha.length < 6
@@ -629,10 +799,16 @@
                         "erro"
                     );
 
+                    senhaInput.focus();
+
                     return;
 
                 }
 
+
+                // =========================================
+                // CONFIRMAR SENHA
+                // =========================================
 
                 if (
                     senha !== confirmarSenha
@@ -643,10 +819,36 @@
                         "erro"
                     );
 
+                    confirmarSenhaInput.focus();
+
                     return;
 
                 }
 
+
+                // =========================================
+                // VALIDAR PERGUNTAS
+                // =========================================
+
+                if (
+                    resposta1.length === 0 ||
+                    resposta2.length === 0 ||
+                    resposta3.length === 0
+                ) {
+
+                    mostrarMensagem(
+                        "Responda às três perguntas de segurança.",
+                        "erro"
+                    );
+
+                    return;
+
+                }
+
+
+                // =========================================
+                // DESABILITAR BOTÃO
+                // =========================================
 
                 botao.disabled =
                     true;
@@ -657,6 +859,10 @@
 
 
                 try {
+
+                    // =====================================
+                    // ENVIAR PARA O BACKEND
+                    // =====================================
 
                     const resposta =
                         await fetch(
@@ -682,7 +888,25 @@
                                             senha,
 
                                         confirmarSenha:
-                                            confirmarSenha
+                                            confirmarSenha,
+
+                                        pergunta_1:
+                                            "Qual é sua comida favorita?",
+
+                                        resposta_1:
+                                            resposta1,
+
+                                        pergunta_2:
+                                            "Qual é sua cor favorita?",
+
+                                        resposta_2:
+                                            resposta2,
+
+                                        pergunta_3:
+                                            "Qual era o nome do seu primeiro animal de estimação?",
+
+                                        resposta_3:
+                                            resposta3
 
                                     })
 
@@ -690,9 +914,27 @@
                         );
 
 
-                    const data =
-                        await resposta.json();
+                    // =====================================
+                    // TENTAR LER RESPOSTA
+                    // =====================================
 
+                    let data = {};
+
+                    try {
+
+                        data =
+                            await resposta.json();
+
+                    } catch {
+
+                        data = {};
+
+                    }
+
+
+                    // =====================================
+                    // ERRO DO BACKEND
+                    // =====================================
 
                     if (!resposta.ok) {
 
@@ -704,25 +946,53 @@
                     }
 
 
-                    localStorage.setItem(
-                        TOKEN_KEY,
+                    // =====================================
+                    // SALVAR TOKEN
+                    // =====================================
+
+                    if (
                         data.token
-                    );
+                    ) {
+
+                        localStorage.setItem(
+                            TOKEN_KEY,
+                            data.token
+                        );
+
+                    }
 
 
-                    localStorage.setItem(
-                        USER_KEY,
-                        JSON.stringify(
-                            data.usuario
-                        )
-                    );
+                    // =====================================
+                    // SALVAR USUÁRIO
+                    // =====================================
 
+                    if (
+                        data.usuario
+                    ) {
+
+                        localStorage.setItem(
+                            USER_KEY,
+                            JSON.stringify(
+                                data.usuario
+                            )
+                        );
+
+                    }
+
+
+                    // =====================================
+                    // SUCESSO
+                    // =====================================
 
                     mostrarMensagem(
                         "Conta criada! Vamos completar seu perfil.",
                         "sucesso"
                     );
 
+
+                    // =====================================
+                    // IR PARA PERFIL
+                    // =====================================
 
                     setTimeout(
                         () => {
@@ -743,14 +1013,32 @@
                     );
 
 
-                    mostrarMensagem(
-                        erro.message,
-                        "erro"
-                    );
+                    // =====================================
+                    // ERRO DE CONEXÃO
+                    // =====================================
+
+                    if (
+                        erro instanceof TypeError
+                    ) {
+
+                        mostrarMensagem(
+                            "Não foi possível conectar ao servidor. Verifique se o backend está rodando na porta 3000.",
+                            "erro"
+                        );
+
+                    } else {
+
+                        mostrarMensagem(
+                            erro.message,
+                            "erro"
+                        );
+
+                    }
 
 
                     botao.disabled =
                         false;
+
 
                     botao.innerText =
                         "Criar conta";
@@ -760,6 +1048,10 @@
             }
         );
 
+
+        // =================================================
+        // MOSTRAR MENSAGEM
+        // =================================================
 
         function mostrarMensagem(
             texto,
